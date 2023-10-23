@@ -1170,7 +1170,7 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
     ) external;
 }
  
-contract usi is ERC20, Ownable {
+contract usic is ERC20, Ownable {
     using SafeMath for uint256;
  
     IUniswapV2Router02 public immutable uniswapV2Router;
@@ -1228,7 +1228,7 @@ contract usi is ERC20, Ownable {
         address indexed oldWallet
     );
  
-    constructor() ERC20("USI Coin", "USIC") {
+    constructor() ERC20("USICoin", "USIC") {
         uniswapV2Router = IUniswapV2Router02(
             0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D
         );
