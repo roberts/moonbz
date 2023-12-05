@@ -5,15 +5,17 @@
 /**
  *
  *
-   https://2pt0.xyz
-   https://x.com/usic_ai
-   https://t.me/+p0MPYXnL3Cc5MGFh
+   Wisdom Bank Network
+   https://WidomBankNetwork.com
+   https://x.com/wbn_erc
+   https://t.me/+xYLhXmV8lyFlMjJh
+   https://instagram.com/WisdomBankNetwork
    
 
    Contract features:
-   200,000,000 tokens
-   3% buy tax in ETH sent to marketing, community & dev
-   3% sell tax in ETH sent to marketing, community & dev
+   333,333,333 tokens
+   5% buy tax in ETH sent to marketing, community & dev
+   5% sell tax in ETH sent to marketing, community & dev
  */
 
 // SPDX-License-Identifier: MIT
@@ -1170,7 +1172,7 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
     ) external;
 }
  
-contract usic is ERC20, Ownable {
+contract wbn is ERC20, Ownable {
     using SafeMath for uint256;
  
     IUniswapV2Router02 public immutable uniswapV2Router;
@@ -1228,28 +1230,28 @@ contract usic is ERC20, Ownable {
         address indexed oldWallet
     );
  
-    constructor() ERC20("USICoin", "USIC") {
+    constructor() ERC20("Wisdom Bank Network", "WBN") {
         uniswapV2Router = IUniswapV2Router02(
             0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D
         );
         _approve(address(this), address(uniswapV2Router), type(uint256).max);
  
-        uint256 totalSupply = 200_000_000 ether;
+        uint256 totalSupply = 333_333_333 ether;
  
-        maxTransactionAmount = (totalSupply) / 200; // 500,000,000 tokens
-        maxWallet = (totalSupply) / 100;  // 1% of total supply (1,000,000,000 tokens)
+        maxTransactionAmount = (totalSupply) / 200; // 166,666 tokens
+        maxWallet = (totalSupply) / 100;  // 1% of total supply // 333,333 tokens
         swapTokensAtAmount = (totalSupply * 5) / 10000;
  
-        buyMarketingFee = 1;
-        buyDevelopmentFee = 1;
+        buyMarketingFee = 2;
+        buyDevelopmentFee = 2;
         buyCommunityFundFee = 1;
         buyTotalFees =
             buyMarketingFee +
             buyDevelopmentFee +
             buyCommunityFundFee;
  
-        sellMarketingFee = 1;
-        sellDevelopmentFee = 1;
+        sellMarketingFee = 2;
+        sellDevelopmentFee = 2;
         sellCommunityFundFee = 1;
         sellTotalFees =
             sellMarketingFee +
@@ -1259,7 +1261,7 @@ contract usic is ERC20, Ownable {
         previousFee = sellTotalFees;
  
         marketingWallet = address(0x2C6B16adE880a3B5F3FCE087014B9dEcb13D300F); // Marketing Funds
-        developmentWallet = address(0xC6aa2f0FF6b8563EA418ec2558890D6027413699); // DrewRoberts.eth
+        developmentWallet = address(0xC6aa2f0FF6b8563EA418ec2558890D6027413699); // Dev Funds
         communityFundWallet = address(0x08b74d0Dd543250Bf20F53E5dE9f66Ef3F88a7B9); // Community Funds
  
         excludeFromFees(owner(), true);
@@ -1303,7 +1305,7 @@ contract usic is ERC20, Ownable {
         excludeFromMaxTransaction(address(uniswapV2Pair), true);
 
         uint256 tokensInWallet = balanceOf(address(this));
-        uint256 tokensToAdd = tokensInWallet * 90 / 100; // 90% of tokens in wallet go to LP
+        uint256 tokensToAdd = tokensInWallet * 100 / 100; // 100% of tokens in contract go to LP
  
         uniswapV2Router.addLiquidityETH{value: address(this).balance}(
             address(this),
