@@ -8,7 +8,7 @@
    Wisdom Bank Network
    https://WidomBankNetwork.com
    https://x.com/wbn_erc
-   https://t.me/+xYLhXmV8lyFlMjJh
+   https://t.me/WBNCOMMUNITY
    https://instagram.com/WisdomBankNetwork
    
 
