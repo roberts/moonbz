@@ -1238,8 +1238,8 @@ contract wbn is ERC20, Ownable {
  
         uint256 totalSupply = 333_333_333 ether;
  
-        maxTransactionAmount = (totalSupply) / 200; // 166,666 tokens
-        maxWallet = (totalSupply) / 100;  // 1% of total supply // 333,333 tokens
+        maxTransactionAmount = (totalSupply) / 200; // 1,666,666 tokens
+        maxWallet = (totalSupply) / 100;  // 1% of total supply // 3,333,333 tokens
         swapTokensAtAmount = (totalSupply * 5) / 10000;
  
         buyMarketingFee = 2;
