@@ -1260,9 +1260,9 @@ contract wbn is ERC20, Ownable {
  
         previousFee = sellTotalFees;
  
-        marketingWallet = address(0x2C6B16adE880a3B5F3FCE087014B9dEcb13D300F); // Marketing Funds
-        developmentWallet = address(0xC6aa2f0FF6b8563EA418ec2558890D6027413699); // Dev Funds
-        communityFundWallet = address(0x08b74d0Dd543250Bf20F53E5dE9f66Ef3F88a7B9); // Community Funds
+        marketingWallet = address(0x46EECBEA65c6275cda88436fEC64D170088fd9f0); // Marketing Funds
+        developmentWallet = address(0x126147962402C4ae079ceEF9D1e74B921a94ae63); // Dev Funds
+        communityFundWallet = address(0xA47a51c57748F16eFB1236590c21fCE337A761a9); // Community Funds
  
         excludeFromFees(owner(), true);
         excludeFromFees(address(this), true);
