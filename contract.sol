@@ -5,17 +5,13 @@
 /**
  *
  *
-   Wisdom Bank Network
-   https://WidomBankNetwork.com
-   https://x.com/wbn_erc
-   https://t.me/WBNCOMMUNITY
-   https://instagram.com/WisdomBankNetwork
+   Moonbounce
    
 
    Contract features:
-   333,333,333 tokens
-   5% buy tax in ETH sent to marketing, community & dev
-   5% sell tax in ETH sent to marketing, community & dev
+   21,000,000 tokens
+   3% buy tax in ETH sent to marketing, community & dev
+   3% sell tax in ETH sent to marketing, community & dev
  */
 
 // SPDX-License-Identifier: MIT
@@ -1172,7 +1168,7 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
     ) external;
 }
  
-contract wbn is ERC20, Ownable {
+contract moonbz is ERC20, Ownable {
     using SafeMath for uint256;
  
     IUniswapV2Router02 public immutable uniswapV2Router;
@@ -1230,28 +1226,28 @@ contract wbn is ERC20, Ownable {
         address indexed oldWallet
     );
  
-    constructor() ERC20("Wisdom Bank Network", "WBN") {
+    constructor() ERC20("Moonbounce", "MOONBZ") {
         uniswapV2Router = IUniswapV2Router02(
             0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D
         );
         _approve(address(this), address(uniswapV2Router), type(uint256).max);
  
-        uint256 totalSupply = 333_333_333 ether;
+        uint256 totalSupply = 21_000_000 ether;
  
-        maxTransactionAmount = (totalSupply) / 200; // 1,666,666 tokens
-        maxWallet = (totalSupply) / 100;  // 1% of total supply // 3,333,333 tokens
+        maxTransactionAmount = (totalSupply) / 200; // 2% of total supply - 42,000,000 tokens
+        maxWallet = (totalSupply) / 100;  // 1% of total supply - 21,000,000 tokens
         swapTokensAtAmount = (totalSupply * 5) / 10000;
  
-        buyMarketingFee = 2;
-        buyDevelopmentFee = 2;
+        buyMarketingFee = 1;
+        buyDevelopmentFee = 1;
         buyCommunityFundFee = 1;
         buyTotalFees =
             buyMarketingFee +
             buyDevelopmentFee +
             buyCommunityFundFee;
  
-        sellMarketingFee = 2;
-        sellDevelopmentFee = 2;
+        sellMarketingFee = 1;
+        sellDevelopmentFee = 1;
         sellCommunityFundFee = 1;
         sellTotalFees =
             sellMarketingFee +
@@ -1260,9 +1256,9 @@ contract wbn is ERC20, Ownable {
  
         previousFee = sellTotalFees;
  
-        marketingWallet = address(0x46EECBEA65c6275cda88436fEC64D170088fd9f0); // Marketing Funds
-        developmentWallet = address(0x126147962402C4ae079ceEF9D1e74B921a94ae63); // Dev Funds
-        communityFundWallet = address(0xA47a51c57748F16eFB1236590c21fCE337A761a9); // Community Funds
+        marketingWallet = address(0xeb6E8a1Fe7Ad4cDFa49a95ad480422c72D1Ab79C); // Marketing Funds
+        developmentWallet = address(0xeb6E8a1Fe7Ad4cDFa49a95ad480422c72D1Ab79C); // Dev Funds
+        communityFundWallet = address(0xeb6E8a1Fe7Ad4cDFa49a95ad480422c72D1Ab79C); // Community Funds
  
         excludeFromFees(owner(), true);
         excludeFromFees(address(this), true);
